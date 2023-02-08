@@ -1,10 +1,10 @@
 import React from "react";
-
+import Login from "./components/login/Login";
 const App = () => {
 
   return (
     <>
-     <h1>Development</h1>
+     <Login/>
     </>
   )
 }
