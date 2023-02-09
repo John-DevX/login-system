@@ -16,12 +16,12 @@ const Login = () => {
     const body = document.body;
     body.classList.toggle('theme');
   }
-  
+
   const handleForm = (e: any) => e.preventDefault();
   return (
     <div>
-      <button onClick={anim} className="rounded bg-violet-600 absolute w-24 right-2 top-2">
-         <div className={!ballAnim ? "bg-white duration-500 rounded-full w-7 h-7 relative left-0" : "duration-500 rounded-full w-7 h-7 relative left-19 bg-black"}></div>
+      <button onClick={anim} className="rounded-3xl bg-violet-900 absolute w-16 right-2 top-2">
+         <div className={!ballAnim ? "bg-white duration-500 rounded-full w-5 h-5 relative left-0" : "duration-500 rounded-full w-5 h-5 relative left-13 bg-black"}></div>
       </button>
       <div className={!theme ? "bg-white shadow-xl md:w-80 mx-auto mt-10 p-2 h-72 rounded-xl" : "shadow-xl md:w-80 mx-auto mt-10 p-2 h-72 rounded-xl bg-slate-900"}>
           <form
