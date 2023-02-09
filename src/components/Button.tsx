@@ -1,5 +1,5 @@
 import { AiOutlineDoubleRight } from 'react-icons/ai';
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 const Input = ({text} : {text: string}) => {
   const [hovePosition, setHovePosition] = useState<boolean>(false);
     return (
