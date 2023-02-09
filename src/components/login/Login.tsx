@@ -1,22 +1,36 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import Input from "../Input";
 import Button from "../Button";
 import { AuthContext } from "../../contexts/authContext";
 const Login = () => {
+  const {theme, setTheme} :any  = useContext(AuthContext);
   const [ballAnim, setBallAnim] = useState<Boolean>(false);
   const anim = () => {
     setBallAnim(!ballAnim);
     themeFunc();
-    
   }
-  const {theme, setTheme} :any  = useContext(AuthContext);
-
-  const themeFunc = () => {
-    setTheme(!theme)
-    const body = document.body;
+  
+  const body = document.body;
+  useEffect(() => {
+    const sendStorage = localStorage.setItem('theme', JSON.stringify(theme));
     body.classList.toggle('theme');
+  }, [theme]);
+  const getStorage = localStorage.getItem('theme');
+  
+  useEffect(() => {
+    switch(getStorage){
+      case 'true':
+      setTheme(true);
+      break;
+      case 'false':
+        setTheme(false);
+    }
+  },[window.onload])
+  
+  const themeFunc = () => {
+    setTheme(!theme); 
   }
-
+  
   const handleForm = (e: any) => e.preventDefault();
   return (
     <div>

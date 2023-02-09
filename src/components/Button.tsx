@@ -4,15 +4,7 @@ import { AuthContext } from '../contexts/authContext';
 const Input = ({text} : {text: string}) => {
   const [hovePosition, setHovePosition] = useState<boolean>(false);
   const {theme}:any = useContext(AuthContext);
-  const arrowActive = () => {
-    if(!theme){
-      
-    }else{
-     
-    }
-  }
-  arrowActive();
-    return (
+      return (
         <div className='relative'>
             <button
             onMouseEnter={() => setHovePosition(true)}
