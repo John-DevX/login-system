@@ -1,9 +1,9 @@
 import React, { useState, useContext, useEffect } from "react";
 import Input from "../Input";
 import Button from "../Button";
-import { AuthContext } from "../../contexts/authContext";
+import { ThemeContext } from "../../contexts/themeContext";
 const Login = () => {
-  const {theme, setTheme} :any  = useContext(AuthContext);
+  const {theme, setTheme} :any  = useContext(ThemeContext);
   const [ballAnim, setBallAnim] = useState <Boolean>(false);
   const anim = () => {
     setBallAnim(!ballAnim);

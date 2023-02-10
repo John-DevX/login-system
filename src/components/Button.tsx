@@ -1,9 +1,9 @@
 import { AiOutlineDoubleRight } from 'react-icons/ai';
 import { useState, useContext } from 'react';
-import { AuthContext } from '../contexts/authContext';
+import { ThemeContext } from '../contexts/themeContext';
 const Input = ({text} : {text: string}) => {
   const [hovePosition, setHovePosition] = useState<boolean>(false);
-  const {theme}:any = useContext(AuthContext);
+  const {theme}:any = useContext(ThemeContext);
       return (
         <div className='relative'>
             <button
