@@ -4,6 +4,8 @@ import Button from "../Button";
 import { ThemeContext } from "../../contexts/themeContext";
 import { AuthContext } from "../../contexts/auth/authContext";
 import { useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 const Login = () => {
   const {theme, setTheme} :any  = useContext(ThemeContext);
   const [ballAnim, setBallAnim] = useState <Boolean>(false);
@@ -47,12 +49,24 @@ const Login = () => {
   }
   const {user, setUser} :any = useContext(AuthContext);
   const navigate = useNavigate(); 
+  const erroMessage = () => {
+    toast.error('Invalid credentials!', {
+        position: toast.POSITION.TOP_RIGHT
+    })};
+  const successMessage = () => {
+    toast.success('valid credentials!', {
+        position: toast.POSITION.TOP_RIGHT
+    })};
   const handleForm = (e: any) => {
     e.preventDefault()
     if(email && password){
       setUser(!user);
-      navigate('/private');
+      successMessage();
+      setTimeout(()=>{
+        navigate('/private');
+      }, 6000)
     }else{
+      erroMessage();
       navigate('/');
     }
   
@@ -83,6 +97,7 @@ const Login = () => {
                   onChange={(e:any) => setPassword(e.target.value)}
                   />
                   <div><Button text="Sign in"/></div>
+                  <ToastContainer />
               </main>
           </form>
       </div>
