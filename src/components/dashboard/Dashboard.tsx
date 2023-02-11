@@ -1,8 +1,14 @@
 import React from 'react';
-
+import Button from '../Button';
 const Dashboard = () => {
+  
   return (
-    <div><h1>Dashboard</h1></div>
+    <div className='text-center mt-2'>
+      <h1 className='font-bold text-xl'>Dashboard</h1>
+     <Button 
+     text='Logout'
+     />
+    </div>
   )
 }
 
