@@ -1,14 +1,14 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Dashboard from '../components/dashboard/Dashboard';
-import Login from '../components/login/Login';
 import { RequireAuth } from '../contexts/auth/RequireAuth';
+import { Home } from '../pages/Home';
+import { Private } from '../pages/Private';
  const Routing = () => {
   return (
     <Router>
         <Routes>
-            <Route path='/' element={<Login/>}/>
-            <Route path='/private' element={<RequireAuth><Dashboard/></RequireAuth>}/>
+            <Route path='/' element={<Home/>}/>
+            <Route path='/private' element={<RequireAuth><Private/></RequireAuth>}/>
         </Routes>
     </Router>
   )
