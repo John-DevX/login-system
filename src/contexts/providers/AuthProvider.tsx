@@ -1,11 +1,10 @@
 import { useState } from "react";
 import { AuthContext } from "../auth/authContext";
-import { User } from "../../types/User";
-export const ThemeProvider = ({children} : {children: React.ReactNode}) => {
-    
+export const AuthProvider = ({children} : {children: React.ReactNode}) => {
+    const [user, setUser] = useState<boolean>(false);
     
     return(
-        <AuthContext.Provider value={{user, signin, signout}}>
+        <AuthContext.Provider value={{user, setUser}}>
             {children}
         </AuthContext.Provider>
     )

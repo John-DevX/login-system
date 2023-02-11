@@ -2,9 +2,13 @@ import React, { useState, useContext, useEffect } from "react";
 import Input from "../Input";
 import Button from "../Button";
 import { ThemeContext } from "../../contexts/themeContext";
+import { AuthContext } from "../../contexts/auth/authContext";
+import { useNavigate } from "react-router-dom";
 const Login = () => {
   const {theme, setTheme} :any  = useContext(ThemeContext);
   const [ballAnim, setBallAnim] = useState <Boolean>(false);
+  const [email, setEmail] = useState<string>('');
+  const [password, setPassword] = useState<string>('');
   const anim = () => {
     setBallAnim(!ballAnim);
     themeFunc();
@@ -41,8 +45,18 @@ const Login = () => {
   const themeFunc = () => {
     setTheme(!theme); 
   }
+  const {user, setUser} :any = useContext(AuthContext);
+  const navigate = useNavigate(); 
+  const handleForm = (e: any) => {
+    e.preventDefault()
+    if(email && password){
+      setUser(!user);
+      navigate('/private');
+    }else{
+      navigate('/');
+    }
   
-  const handleForm = (e: any) => e.preventDefault();
+  };
   return (
     <div>
 
@@ -61,10 +75,12 @@ const Login = () => {
                   <Input
                   placeholder="Email"
                   type="email"
+                  onChange={(e:any) => setEmail(e.target.value)}
                   />
                   <Input
                   placeholder="Password"
                   type="password"
+                  onChange={(e:any) => setPassword(e.target.value)}
                   />
                   <div><Button text="Sign in"/></div>
               </main>
