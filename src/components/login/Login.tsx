@@ -11,44 +11,42 @@ const Login = () => {
   const [ballAnim, setBallAnim] = useState <Boolean>(false);
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
+  const token :string = '143803002';
+  const getToken = localStorage.getItem('token');
+  const {user, setUser} :any = useContext(AuthContext);
+  const navigate = useNavigate();
   const anim = () => {
     setBallAnim(!ballAnim);
     themeFunc();
   }
-
-  const body = document.body;
-  useEffect(() => {
-    const sendStorage = localStorage.setItem('theme', JSON.stringify(theme));
-    body.classList.toggle('theme');
-  }, [theme]);
-  const getStorage = localStorage.getItem('theme');
-  const sendStorage = localStorage.setItem('ball', JSON.stringify(ballAnim));
-  const getStorageBall = localStorage.getItem('ball');
+  const sendToken = () => {
+  localStorage.setItem('token', token);
+ }
   
-  useEffect(()=>{
-    switch(getStorage){
+  const getTheme = localStorage.getItem('theme');
+  useEffect(() => {
+    switch(getTheme){
       case 'true':
         setBallAnim(true);
       break;
       case 'false':
         setBallAnim(false);
-  };[window.onload]});
-
-  useEffect(() => {
-    switch(getStorage){
-      case 'true':
-        setTheme(true);
-      break;
-      case 'false':
-        setTheme(false);
     }
   },[window.onload])
 
+  useEffect(() => {
+    if(getToken){
+      navigate('/private');
+      setUser(!user);
+    }else{
+      navigate('/'); 
+    }
+  }, [window.onload])
+  
   const themeFunc = () => {
     setTheme(!theme); 
   }
-  const {user, setUser} :any = useContext(AuthContext);
-  const navigate = useNavigate(); 
+   
   const erroMessage = () => {
     toast.error('Invalid credentials!', {
         position: toast.POSITION.TOP_RIGHT
@@ -65,15 +63,14 @@ const Login = () => {
       setTimeout(()=>{
         navigate('/private');
       }, 6000)
+      sendToken();
     }else{
       erroMessage();
       navigate('/');
     }
-  
   };
   return (
     <div>
-
       <button onClick={anim} className="rounded-3xl bg-violet-900 absolute w-16 right-2 top-2">
          <div className={!ballAnim ? "bg-white duration-500 rounded-full w-5 h-5 relative left-0" : "duration-500 rounded-full w-5 h-5 relative left-13 bg-black"}></div>
       </button>
