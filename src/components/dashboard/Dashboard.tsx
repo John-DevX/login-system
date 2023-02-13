@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import { ThemeContext } from '../../contexts/themeContext';
+import Button from '../Button';
 const Dashboard = () => {
 const navigate = useNavigate();
 const logout = () => {
@@ -7,11 +7,12 @@ const logout = () => {
   navigate('/');
 }
   return (
-    <div className='text-center mt-2'>
+    <div className='text-center mt-2 md:w-80 mx-auto p-2'>
       <h1 className='font-bold text-xl'>Dashboard</h1>
-     <button
-     onClick={logout}
-     className='border bg-indigo-500'>Logout</button>
+     <Button
+     clickEvent={logout}
+     text='Logout'
+     />
     </div>
   )
 }

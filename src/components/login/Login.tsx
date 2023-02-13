@@ -55,7 +55,7 @@ const Login = () => {
     toast.success('valid credentials!', {
         position: toast.POSITION.TOP_RIGHT
     })};
-  const handleForm = (e: any) => {
+  const login = (e: any) => {
     e.preventDefault()
     if(email && password){
       setUser(!user);
@@ -77,7 +77,6 @@ const Login = () => {
 
       <div className={!theme ? "bg-white shadow-xl md:w-80 mx-auto mt-10 p-2 h-72 rounded-xl" : "shadow-xl md:w-80 mx-auto mt-10 p-2 h-72 rounded-xl bg-slate-900"}>
           <form
-          onSubmit={handleForm}
           className="text-center">
               <header>
                   <h1 className="font-bold text-2xl mb-10">Login</h1>
@@ -93,7 +92,9 @@ const Login = () => {
                   type="password"
                   onChange={(e:any) => setPassword(e.target.value)}
                   />
-                  <div><Button text="Sign in"/></div>
+                  <div><Button 
+                  clickEvent={login}
+                  text="Sign in"/></div>
                   <ToastContainer />
               </main>
           </form>
