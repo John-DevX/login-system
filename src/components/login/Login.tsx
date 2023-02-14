@@ -108,7 +108,7 @@ const Login = () => {
                   {errors.password || errors.email ? <p className="text-red-500 text-xs" 
                   >Required fild</p> : <p></p>}
                   <BiShow
-                  className="absolute top-16 md:right-14 right-21"  
+                  className="absolute top-16 md:right-14 right-28"  
                   onClick={showPassword}/>
                   <div><Button 
                   clickEvent={handleSubmit(login)}
