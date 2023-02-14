@@ -10,16 +10,16 @@ const Button = ({text, clickEvent} : {text: string, clickEvent:any}) => {
             onMouseEnter={() => setHovePosition(true)}
             onMouseLeave={() => setHovePosition(false)}
             onClick={clickEvent}
-            className="text-white bg-indigo-500 rounded p-1 w-28 mt-10">{text}</button>
+            className="text-white bg-indigo-500 rounded p-2 w-40 mt-10">{text}</button>
           {!theme 
              ? <AiOutlineDoubleRight className={!hovePosition 
              ?
-               'inline-block absolute bottom-2 duration-500 text-white right-20' 
-             : 'inline-block absolute bottom-2 duration-500 text-white right-24'}/>
+               'inline-block absolute bottom-3 duration-500 text-white right-14 text-xs' 
+             : 'inline-block absolute bottom-3 duration-500 text-white right-20 text-xs'}/>
              : <AiOutlineDoubleRight className={!hovePosition 
               ?
-                'inline-block absolute bottom-2 duration-500 text-slate-900 right-20' 
-              : 'inline-block absolute bottom-2 duration-500 text-white right-24'}/>} 
+                'inline-block absolute bottom-3 duration-500 text-slate-900 right-14 text-xs' 
+              : 'inline-block absolute bottom-3 duration-500 text-white right-20 text-xs'}/>} 
         </div>
       )
     }

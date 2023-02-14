@@ -1,4 +1,5 @@
 import React, { useState, useContext, useEffect } from "react";
+import { useForm } from "react-hook-form";
 import Input from "../Input";
 import Button from "../Button";
 import { ThemeContext } from "../../contexts/themeContext";
@@ -7,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 const Login = () => {
+  const {register, handleSubmit, formState: { errors }} = useForm();
   const {theme, setTheme} :any  = useContext(ThemeContext);
   const [ballAnim, setBallAnim] = useState <Boolean>(false);
   const [email, setEmail] = useState<string>('');
@@ -14,6 +16,7 @@ const Login = () => {
   const token :string = '143803002';
   const getToken = localStorage.getItem('token');
   const {user, setUser} :any = useContext(AuthContext);
+
   const navigate = useNavigate();
   const anim = () => {
     setBallAnim(!ballAnim);
@@ -55,9 +58,8 @@ const Login = () => {
     toast.success('valid credentials!', {
         position: toast.POSITION.TOP_RIGHT
     })};
-  const login = (e: any) => {
-    e.preventDefault()
-    if(email && password){
+  const login = (data: any) => {
+    if(data.email && data.password){
       setUser(!user);
       successMessage();
       setTimeout(()=>{
@@ -69,6 +71,7 @@ const Login = () => {
       navigate('/');
     }
   };
+  
   return (
     <div>
       <button onClick={anim} className="rounded-3xl bg-violet-900 absolute w-16 right-2 top-2">
@@ -85,15 +88,21 @@ const Login = () => {
                   <Input
                   placeholder="Email"
                   type="email"
+                  name="email"
+                  register={register}
                   onChange={(e:any) => setEmail(e.target.value)}
                   />
+                  {errors.email && <p className="text-red-500 text-xs">Required field</p>}
                   <Input
                   placeholder="Password"
                   type="password"
+                  name="password"
+                  register={register}
                   onChange={(e:any) => setPassword(e.target.value)}
                   />
+                  {errors.password && <p className="text-red-500 text-xs">Required field</p>} 
                   <div><Button 
-                  clickEvent={login}
+                  clickEvent={handleSubmit(login)}
                   text="Sign in"/></div>
                   <ToastContainer />
               </main>
