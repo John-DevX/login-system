@@ -7,7 +7,12 @@ const App = () => {
   const getTheme = localStorage.getItem('theme');
   useEffect(() => {
     const sendStorage = localStorage.setItem('theme', JSON.stringify(theme));
-    body.classList.toggle('theme');
+    if(theme){ 
+        body.classList.add('theme');
+    }
+    else{
+        body.classList.remove('theme');
+    }
   }, [theme]);
   useEffect(() => {
     switch(getTheme){

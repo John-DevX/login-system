@@ -14,12 +14,12 @@ const Button = ({text, clickEvent} : {text: string, clickEvent:any}) => {
           {!theme 
              ? <AiOutlineDoubleRight className={!hovePosition 
              ?
-               'inline-block absolute bottom-3 duration-500 text-white right-14 text-xs' 
-             : 'inline-block absolute bottom-3 duration-500 text-white right-20 text-xs'}/>
+               'inline-block absolute bottom-3 duration-500 text-white md:right-14 right-24 text-xs' 
+             : 'inline-block absolute bottom-3 duration-500 text-white md:right-20 right-28 text-xs'}/>
              : <AiOutlineDoubleRight className={!hovePosition 
               ?
-                'inline-block absolute bottom-3 duration-500 text-slate-900 right-14 text-xs' 
-              : 'inline-block absolute bottom-3 duration-500 text-white right-20 text-xs'}/>} 
+                'inline-block absolute bottom-3 duration-500 text-slate-900 md:right-14 right-24 text-xs' 
+              : 'inline-block absolute bottom-3 duration-500 text-white md:right-20 right-28 text-xs'}/>} 
         </div>
       )
     }
