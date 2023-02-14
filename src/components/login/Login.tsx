@@ -7,16 +7,15 @@ import { AuthContext } from "../../contexts/auth/authContext";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { BiShow } from 'react-icons/bi';
 const Login = () => {
   const {register, handleSubmit, formState: { errors }} = useForm();
   const {theme, setTheme} :any  = useContext(ThemeContext);
   const [ballAnim, setBallAnim] = useState <Boolean>(false);
-  const [email, setEmail] = useState<string>('');
-  const [password, setPassword] = useState<string>('');
   const token :string = '143803002';
   const getToken = localStorage.getItem('token');
   const {user, setUser} :any = useContext(AuthContext);
-
+  const [password, setPassword] = useState('password');
   const navigate = useNavigate();
   const anim = () => {
     setBallAnim(!ballAnim);
@@ -58,7 +57,6 @@ const Login = () => {
     toast.success('valid credentials!', {
         position: toast.POSITION.TOP_RIGHT
     })};
-  
   const login = (data: any) => {
     const regexEmail = /^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/;
     if(regexEmail.test(data.email) !== true){
@@ -74,35 +72,44 @@ const Login = () => {
     }
   };
 
+  const showPassword = () => {
+    if(password == 'password'){
+      setPassword('text');
+    }else{
+      setPassword('password');
+    }
+  }
+
   return (
     <div>
       <button onClick={anim} className="rounded-3xl bg-violet-900 absolute w-16 right-2 top-2">
          <div className={!ballAnim ? "bg-white duration-500 rounded-full w-5 h-5 relative left-0" : "duration-500 rounded-full w-5 h-5 relative left-13 bg-black"}></div>
       </button>
 
-      <div className={!theme ? "bg-white shadow-xl md:w-80 mx-auto mt-10 p-2 h-72 rounded-xl" : "shadow-xl md:w-80 mx-auto mt-10 p-2 h-72 rounded-xl bg-slate-900"}>
+      <div className={!theme ? "bg-white shadow-xl md:w-80 mx-auto mt-10 p-2 pb-2 h-72 rounded-xl" : "shadow-xl md:w-80 mx-auto mt-10 p-2 pb-2 h-72 rounded-xl bg-slate-900"}>
           <form
           className="text-center">
               <header>
                   <h1 className="font-bold text-2xl mb-10">Login</h1>
               </header>
-              <main>
+              <main className="relative">
                   <Input
                   placeholder="Email"
                   type="email"
                   name="email"
                   register={register}
-                  onChange={(e:any) => setEmail(e.target.value)}
                   />
-                  {errors.email && <p className="text-red-500 text-xs">Required field</p>}
+                  {errors.email && <p className="md:mr-3 mr-5 text-red-500 text-xs">Required field</p>}
                   <Input
                   placeholder="Password"
-                  type="password"
+                  type={password}
                   name="password"
                   register={register}
-                  onChange={(e:any) => setPassword(e.target.value)}
                   />
-                  {errors.password && <p className="text-red-500 text-xs">Required field</p>} 
+                  {errors.password && <p className="text-red-500 text-xs absolute md:left-25 left-34">Required field</p>}
+                  <BiShow 
+                  className="cursor-pointer text-xl absolute md:right-14 right-24 bottom-21"
+                  onClick={showPassword}/> 
                   <div><Button 
                   clickEvent={handleSubmit(login)}
                   text="Sign in"/></div>
