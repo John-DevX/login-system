@@ -58,20 +58,22 @@ const Login = () => {
     toast.success('valid credentials!', {
         position: toast.POSITION.TOP_RIGHT
     })};
+  
   const login = (data: any) => {
-    if(data.email && data.password){
+    const regexEmail = /^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/;
+    if(regexEmail.test(data.email) !== true){
+      erroMessage();
+      navigate('/');
+    }else{
       setUser(!user);
       successMessage();
       setTimeout(()=>{
         navigate('/private');
       }, 6000)
       sendToken();
-    }else{
-      erroMessage();
-      navigate('/');
     }
   };
-  
+
   return (
     <div>
       <button onClick={anim} className="rounded-3xl bg-violet-900 absolute w-16 right-2 top-2">
