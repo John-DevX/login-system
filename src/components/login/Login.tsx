@@ -99,17 +99,17 @@ const Login = () => {
                   name="email"
                   register={register}
                   />
-                  {errors.email && <p className="md:mr-3 mr-5 text-red-500 text-xs">Required field</p>}
                   <Input
                   placeholder="Password"
                   type={password}
                   name="password"
                   register={register}
                   />
-                  {errors.password && <p className="text-red-500 text-xs absolute md:left-25 left-34">Required field</p>}
-                  <BiShow 
-                  className="cursor-pointer text-xl absolute md:right-14 right-24 bottom-21"
-                  onClick={showPassword}/> 
+                  {errors.password || errors.email ? <p className="text-red-500 text-xs" 
+                  >Required fild</p> : <p></p>}
+                  <BiShow
+                  className="absolute top-16 md:right-14 right-21"  
+                  onClick={showPassword}/>
                   <div><Button 
                   clickEvent={handleSubmit(login)}
                   text="Sign in"/></div>
