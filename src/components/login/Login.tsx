@@ -88,9 +88,9 @@ const Login = () => {
         <div className={!ballAnim ? "bg-white duration-500 rounded-full w-5 h-5 relative left-0" : "duration-500 rounded-full w-5 h-5 relative left-13 bg-black"}></div>
       </button>
 
-      <div className={!theme ? "bg-white shadow-xl md:w-80 p-2 pb-2 h-72 rounded-xl mx-auto mt-5" : "shadow-xl md:w-80 p-2 pb-2 h-72 rounded-xl bg-slate-900 mx-auto mt-5"}>
+      <div className='text-center w-screen h-screen flex items-center justify-center'>
         <form
-          className="text-center">
+          className={!theme ? "bg-white shadow-xl md:w-80 p-2 pb-2 h-72 rounded-xl w-full" : "shadow-xl md:w-80 p-2 pb-2 h-72 rounded-xl bg-slate-900 w-full "}>
           <header>
             <h1 className="font-bold text-2xl mb-10">Login</h1>
           </header>
