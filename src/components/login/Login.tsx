@@ -90,9 +90,9 @@ const Login = () => {
 
       <div className='text-center w-screen h-screen flex items-center justify-center'>
         <form
-          className={!theme ? "bg-white shadow-xl md:w-80 p-2 pb-2 h-72 rounded-xl w-full" : "shadow-xl md:w-80 p-2 pb-2 h-72 rounded-xl bg-slate-900 w-full "}>
+          className={!theme ? "bg-white shadow-xl p-2 pb-2 rounded-xl h-80 w-full md:w-81" : "shadow-2xl p-2 pb-2 rounded-xl bg-slate-900 h-80 w-full md:w-81"}>
           <header>
-            <h1 className="font-bold text-2xl mb-10">Login</h1>
+            <h1 className="font-bold text-2xl mb-10 mt-8">Log in</h1>
           </header>
           <main className="relative">
             <Input
@@ -110,11 +110,11 @@ const Login = () => {
             {errors.password || errors.email ? <p className="text-red-500 text-xs"
             >Required fild</p> : <p></p>}
             <BiShow
-              className="absolute top-16 md:right-14 right-28"
+              className="absolute top-16.5 md:right-40 right-28 cursor-pointer"
               onClick={showPassword} />
             <div><Button
               clickEvent={handleSubmit(login)}
-              text="Sign in" /></div>
+              text="Login" /></div>
             <ToastContainer />
           </main>
         </form>
