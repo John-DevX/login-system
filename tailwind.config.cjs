@@ -14,6 +14,9 @@ module.exports = {
         13: '2.8rem',
         16.5: '4.5rem',
         81: '530px',
+      },
+      colors: {
+        blue: '#5880d0',
       }
     }
   },

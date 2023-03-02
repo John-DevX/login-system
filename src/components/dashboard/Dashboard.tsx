@@ -7,7 +7,7 @@ const Dashboard = () => {
     return navigate('/');
   }
   return (
-    <div className='text-center mt-2 md:w-80 mx-auto p-2'>
+    <div className='text-center mt-2 md:w-80 mx-auto p-2 relative'>
       <h1 className='font-bold text-xl'>Dashboard</h1>
       <Button
         clickEvent={logout}

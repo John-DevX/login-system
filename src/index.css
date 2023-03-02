@@ -9,8 +9,8 @@
     font-family: 'Poppins', sans-serif;
 }
 
-.theme{
-    background: linear-gradient(to left,rgba(0,0,0,1)0%,rgba(0,0,0,2)0%,#17314E 100%);
+.dark{
+    background-color: #0D182E;
     color: #fff;
 }
 

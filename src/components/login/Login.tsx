@@ -90,7 +90,7 @@ const Login = () => {
 
       <div className='text-center w-screen h-screen flex items-center justify-center'>
         <form
-          className={!theme ? "bg-white shadow-xl p-2 pb-2 rounded-xl h-80 w-full md:w-81" : "shadow-2xl p-2 pb-2 rounded-xl bg-slate-900 h-80 w-full md:w-81"}>
+          className={!theme ? "bg-white shadow-xl p-2 pb-2 rounded-xl h-80 w-full md:w-81" : "shadow-2xl p-2 pb-2 rounded-xl h-80 w-full md:w-81 bg-gradient-to-r from-blue"}>
           <header>
             <h1 className="font-bold text-2xl mb-10 mt-8">Log in</h1>
           </header>

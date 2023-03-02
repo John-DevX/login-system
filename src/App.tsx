@@ -8,10 +8,10 @@ const App = () => {
   useEffect(() => {
     const sendStorage = localStorage.setItem('theme', JSON.stringify(theme));
     if(theme){ 
-        body.classList.add('theme');
+        body.classList.add('dark');
     }
     else{
-        body.classList.remove('theme');
+        body.classList.remove('dark');
     }
   }, [theme]);
   useEffect(() => {
