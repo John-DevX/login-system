@@ -10,7 +10,7 @@ const Button = ({text, clickEvent} : {text: string, clickEvent:any}) => {
             onMouseEnter={() => setHovePosition(true)}
             onMouseLeave={() => setHovePosition(false)}
             onClick={clickEvent}
-            className={`${theme ? 'bg-gradient-to-r from-indigo-300' : 'bg-indigo-500'} rounded text-white p-2 w-40 mt-8`}>{text}</button>
+            className={`${theme ? 'bg-gradient-to-r from-purple-100' : 'bg-purple-100'} rounded text-white p-2 w-40 mt-4`}>{text}</button>
           {!theme 
              ? <AiOutlineDoubleRight className={!hovePosition 
              ?

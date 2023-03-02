@@ -16,7 +16,11 @@ module.exports = {
         81: '530px',
       },
       colors: {
-        blue: '#5880d0',
+        rose: '#FF1493',
+        purple:{
+          100:'#8A2BE2',
+          200: '#4B0082'
+        }
       }
     }
   },

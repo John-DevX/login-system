@@ -84,13 +84,13 @@ const Login = () => {
 
   return (
     <div>
-      <button onClick={anim} className="rounded-3xl bg-violet-900 absolute w-16 right-2 top-2">
+      <button onClick={anim} className={`${theme ? 'bg-purple-100' : 'bg-rose'} rounded-3xl absolute w-16 right-2 top-2`}>
         <div className={!ballAnim ? "bg-white duration-500 rounded-full w-5 h-5 relative left-0" : "duration-500 rounded-full w-5 h-5 relative left-13 bg-black"}></div>
       </button>
 
       <div className='text-center w-screen h-screen flex items-center justify-center'>
         <form
-          className={!theme ? "bg-white shadow-xl p-2 pb-2 rounded-xl h-80 w-full md:w-81" : "shadow-2xl p-2 pb-2 rounded-xl h-80 w-full md:w-81 bg-gradient-to-r from-blue"}>
+          className={!theme ? "bg-white shadow-xl p-2 pb-2 rounded-xl h-80 w-full md:w-81" : "shadow-2xl p-2 pb-2 rounded-xl h-80 w-full md:w-81 bg-gradient-to-r from-purple-200"}>
           <header>
             <h1 className="font-bold text-2xl mb-10 mt-8">Log in</h1>
           </header>
