@@ -50,14 +50,46 @@ const Login = () => {
   }
 
   const erroMessage = () => {
-    toast.error('Invalid credentials!', {
-      position: toast.POSITION.TOP_RIGHT
-    })
+    {theme ? toast.error('Invalid credentials!', {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+      }) : toast.error('Invalid credentials!', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        });}
   };
   const successMessage = () => {
-    toast.success('valid credentials!', {
-      position: toast.POSITION.TOP_RIGHT
-    })
+    {theme ? toast.success('Valid credentials!', {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+      }) : toast.success('Valid credentials!', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        })}
   };
   const login = (data: any) => {
     const regexEmail = /^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/;
@@ -115,7 +147,20 @@ const Login = () => {
             <div><Button
               clickEvent={handleSubmit(login)}
               text="Login" /></div>
-            <ToastContainer />
+            <ToastContainer
+position="top-right"
+autoClose={5000}
+hideProgressBar={false}
+newestOnTop={false}
+closeOnClick
+rtl={false}
+pauseOnFocusLoss
+draggable
+pauseOnHover
+theme="light"
+/>
+{/* Same as */}
+<ToastContainer />
           </main>
         </form>
       </div>
